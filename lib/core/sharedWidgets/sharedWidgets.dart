@@ -8,11 +8,16 @@ import '../contants/text_styles.dart';
 class SharedWidgets {
   static AppBar appBarCustom(Size size) {
     return AppBar(
+      centerTitle: false,
+      titleTextStyle: TextStyles.S_W_24,
       elevation: 0,
-      toolbarHeight: size.height * 0.07,
-      iconTheme: const IconThemeData(color: Colors.white),
-      backgroundColor: AppColors.MENU_BOTTOM_COLOR,
-      title: Text(Get.currentRoute),
+      toolbarHeight: size.height * 0.05,
+      iconTheme: const IconThemeData(size: 40, color: Colors.white),
+      backgroundColor: AppColors.BACKGROUND,
+      title: Padding(
+        padding: const EdgeInsets.only(left: 20.0, top: 8),
+        child: Text(Get.currentRoute),
+      ),
       automaticallyImplyLeading: true,
       titleSpacing: -10,
       actions: [],
@@ -61,7 +66,7 @@ class DrawerCustom extends StatelessWidget {
     }
 
     return Drawer(
-      backgroundColor: AppColors.MENU_DRAWER_BACKGROUND,
+      backgroundColor: AppColors.BACKGROUND,
       elevation: 5,
       width: size.width * 0.7,
       child: ListView(

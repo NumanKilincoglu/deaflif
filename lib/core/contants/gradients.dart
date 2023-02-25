@@ -7,11 +7,11 @@ class Gradients {
 
   Gradients._init();
 
-  Gradient LoginPageGradients = const RadialGradient(
-      focal: Alignment(0.3, -0.1),
-      focalRadius: 1.1,
+  Gradient LoginPageGradients = LinearGradient(
+      begin: Alignment.center,
+      end: Alignment.topCenter,
       colors: [
         Color.fromRGBO(160, 163, 206, 1),
-        Color.fromRGBO(43, 120, 180, 6)
+        Color.fromRGBO(43, 120, 180, 1)
       ]);
 }

@@ -2,12 +2,25 @@ import 'package:flutter/material.dart';
 import 'app_colors.dart';
 
 class TextStyles {
-
   static TextStyles? _instance;
 
   static TextStyles get instance => _instance ??= TextStyles._init();
 
   TextStyles._init();
+  static TextStyle S_W_16 = const TextStyle(
+      fontSize: 16, color: Colors.white, fontWeight: FontWeight.w400);
+  static TextStyle S_W_18 = const TextStyle(
+      fontSize: 18, color: Colors.white, fontWeight: FontWeight.w400);
+  static TextStyle S_W_20 = const TextStyle(
+      fontSize: 20, color: Colors.white, fontWeight: FontWeight.w400);
+  static TextStyle S_W_24 = const TextStyle(
+      fontSize: 24, color: Colors.white, fontWeight: FontWeight.w400);
+  static TextStyle S_W_32 = const TextStyle(
+      fontSize: 32, color: Colors.white, fontWeight: FontWeight.w400);
+
+  static TextStyle S_W_24_Fade = const TextStyle(
+      fontSize: 24, color: Colors.white54, fontWeight: FontWeight.w400);
+
   /*
   static TextStyle medium21WhiteStyle = GoogleFonts.montserrat(fontSize: 21, color: Colors.white, fontWeight: FontWeight.w700);
   static TextStyle mid12BlackStyle = GoogleFonts.montserrat(fontSize: 12, color: Colors.black, fontWeight: FontWeight.w500);

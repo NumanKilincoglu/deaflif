@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../feature/login/loginView.dart';
-import '../../feature/main/mainView.dart';
 import '../../feature/history/historyView.dart';
 import '../../feature/addDevice/addDeviceView.dart';
+import '../../feature/main/mainView.dart';
 import '../../feature/morning/morningView.dart';
 import '../../feature/night/nightView.dart';
 import '../../feature/vibration/vibrationView.dart';
@@ -35,5 +35,7 @@ class RouteNames {
 
   static List<GetPage> routes = [
     GetPage(name: LOGIN_PAGE, page: () => LoginPage()),
+    GetPage(name: MAIN_PAGE, page: () => MainView()),
+    GetPage(name: HISTORY_PAGE, page: () => HistoryView()),
   ];
 }

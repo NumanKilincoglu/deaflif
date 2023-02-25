@@ -16,8 +16,6 @@ class MainPage extends StatelessWidget {
     return GetMaterialApp(
       locale: const Locale("tr", "TR"),
       theme: ThemeData(
-        primaryColor: AppColors.PRIMARY_LIGHT_COLOR,
-        primaryColorDark: AppColors.PRIMARY_COLOR,
       ),
       initialRoute: RouteNames.getLoginPage(),
       getPages: RouteNames.routes,
