@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-
 import 'app_colors.dart';
 
 class TextStyles {
@@ -10,7 +8,7 @@ class TextStyles {
   static TextStyles get instance => _instance ??= TextStyles._init();
 
   TextStyles._init();
-  
+  /*
   static TextStyle medium21WhiteStyle = GoogleFonts.montserrat(fontSize: 21, color: Colors.white, fontWeight: FontWeight.w700);
   static TextStyle mid12BlackStyle = GoogleFonts.montserrat(fontSize: 12, color: Colors.black, fontWeight: FontWeight.w500);
   static TextStyle mid12WhiteStyle = GoogleFonts.montserrat(fontSize: 12, color: Colors.white, fontWeight: FontWeight.w500);
@@ -46,6 +44,5 @@ class TextStyles {
   static TextStyle drawerTextStyle = GoogleFonts.montserrat(fontSize: 30, color: AppColors.LOGIN_BUTTON_COLOR, fontWeight: FontWeight.w900, );
   static TextStyle drawerItemTextStyle = GoogleFonts.montserrat(fontSize: 17, color: AppColors.MEMU_BACKGROUND, fontWeight: FontWeight.w500,);
   static TextStyle draweLastTextStyle = GoogleFonts.montserrat(fontSize: 12, color: AppColors.MEMU_BACKGROUND, fontWeight: FontWeight.w400,);
-  
-
+  */
 }

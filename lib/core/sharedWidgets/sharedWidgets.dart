@@ -92,7 +92,6 @@ class DrawerItemWidget extends StatelessWidget {
         focusColor: Colors.tealAccent,
         title: Text(
           text,
-          style: TextStyles.drawerItemTextStyle,
         ),
         onTap: () => Get.toNamed(route),
       ),
