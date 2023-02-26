@@ -17,7 +17,7 @@ class MainPage extends StatelessWidget {
       locale: const Locale("tr", "TR"),
       theme: ThemeData(
       ),
-      initialRoute: RouteNames.getLoginPage(),
+      initialRoute: RouteNames.getHistoryPage(),
       getPages: RouteNames.routes,
       debugShowCheckedModeBanner: false,
     );

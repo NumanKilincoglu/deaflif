@@ -21,7 +21,7 @@ class LoginPage extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       drawer: DrawerCustom(size: size),
       drawerScrimColor: Colors.black87,
-      body: Body(),
+      body: const Body(),
     );
   }
 }
@@ -49,7 +49,7 @@ class Body extends StatelessWidget {
           Expanded(
             flex: 1,
             child: Text(
-              "GİRİŞ YAP",
+              AppStrings.LOGIN_GIRIS_YAP_UPPER,
               style: TextStyles.S_W_32,
             ),
           ),
@@ -61,56 +61,65 @@ class Body extends StatelessWidget {
                 heightTextField: heightTextField,
                 highPadding: highPadding),
           ),
-          Expanded(
+          const Expanded(
             flex: 4,
-            child: Padding(
-              padding: const EdgeInsets.only(top: 64.0),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 10.0),
-                        child: SizedBox(
-                          width: 160,
-                          height: 50,
-                          child: OutlinedButton(
-                            style: OutlinedButton.styleFrom(
-                              side: const BorderSide(
-                                  color: Colors.white, width: 2),
-                            ),
-                            onPressed: () =>
-                                Get.offAndToNamed(RouteNames.getMainPage()),
-                            child: Text(AppStrings.LOGIN_GIRIS_YAP,
-                                style: TextStyles.S_W_24),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        width: 200,
-                        height: 50,
-                        child: TextButton(
-                          onPressed: null,
-                          child: Text("Şifremi Unuttum?",
-                              style: TextStyles.S_W_16),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
+            child: LoginButtonSection(),
           ),
           const SizedBox(
             height: 5,
           )
+        ],
+      ),
+    );
+  }
+}
+
+class LoginButtonSection extends StatelessWidget {
+  const LoginButtonSection({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 64.0),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(bottom: 10.0),
+                child: SizedBox(
+                  width: 160,
+                  height: 50,
+                  child: OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      side: const BorderSide(color: Colors.white, width: 2),
+                    ),
+                    onPressed: () =>
+                        Get.offAndToNamed(RouteNames.getHistoryPage()),
+                    child: Text(AppStrings.LOGIN_GIRIS_YAP,
+                        style: TextStyles.S_W_24),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                width: 200,
+                height: 50,
+                child: TextButton(
+                  onPressed: null,
+                  child: Text("Şifremi Unuttum?", style: TextStyles.S_W_16),
+                ),
+              ),
+            ],
+          ),
         ],
       ),
     );

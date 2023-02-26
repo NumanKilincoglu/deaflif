@@ -7,6 +7,7 @@ class AppStrings {
   AppStrings._init();
   static const String LOGIN_GIRISYAPILIYOR = "Giriş Yapılıyor";
   static const String LOGIN_GIRIS_YAP = "Giriş Yap";
+    static const String LOGIN_GIRIS_YAP_UPPER = "GİRİŞ YAP";
   static const String LOGIN_MAIL = "Email";
   static const String LOGIN_PASSWORD = "Şifre";
   static const String LOGIN_FORGOT_PASSWORD = "Şifremi Unuttum";
