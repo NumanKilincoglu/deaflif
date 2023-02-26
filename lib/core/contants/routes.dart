@@ -11,13 +11,13 @@ import '../../feature/night/nightView.dart';
 import '../../feature/vibration/vibrationView.dart';
 
 class RouteNames {
-  static String LOGIN_PAGE = "/loginPage";
-  static String MAIN_PAGE = "/mainPage";
-  static String HISTORY_PAGE = "/historyPage";
-  static String ADD_DEVICE_PAGE = "/addDevicePage";
-  static String MORNING_PAGE = "/morningPage";
-  static String NIGHT_PAGE = "/nightPage";
-  static String VIBRATION_PAGE = "/vibrationPage";
+  static String LOGIN_PAGE = "/login";
+  static String MAIN_PAGE = "/main";
+  static String HISTORY_PAGE = "/history";
+  static String ADD_DEVICE_PAGE = "/addDevice";
+  static String MORNING_PAGE = "/morning";
+  static String NIGHT_PAGE = "/night";
+  static String VIBRATION_PAGE = "/vibration";
 
   static String getLoginPage() => LOGIN_PAGE;
 

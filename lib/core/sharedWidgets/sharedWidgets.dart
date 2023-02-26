@@ -16,7 +16,7 @@ class SharedWidgets {
       backgroundColor: AppColors.BACKGROUND,
       title: Padding(
         padding: const EdgeInsets.only(left: 20.0, top: 8),
-        child: Text(Get.currentRoute),
+        child: Text(Get.currentRoute == "/history" ? "Geçmiş" : Get.currentRoute, style: TextStyles.S_W_24,),
       ),
       automaticallyImplyLeading: true,
       titleSpacing: -10,
