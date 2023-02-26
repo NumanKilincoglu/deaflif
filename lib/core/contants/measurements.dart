@@ -10,6 +10,7 @@ class Measurement {
 
   //genislikler
   double P_01_W = Get.width * 0.01;
+  double P_05_W = Get.width * 0.05;
   double P_0125_W = Get.width * 0.14;
   double P_15_w = Get.width * 0.15;
   double P_20_W = Get.width * 0.2;

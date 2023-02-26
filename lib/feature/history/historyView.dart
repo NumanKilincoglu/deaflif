@@ -63,32 +63,36 @@ class ListViewBuilder extends StatelessWidget {
 
 Widget buildCard(HistoryModel model) {
   return Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+    padding: EdgeInsets.symmetric(
+        horizontal: Measurement.instance.P_05_W, vertical: 2),
     child: ClipRRect(
-      child: Card(
-        color: AppColors.HISTORY_TILE,
-        child: Row(
-          children: <Widget>[
-            Expanded(
-              child: ListTile(
-                leading: Text(model.text, style: TextStyles.S_W_20),
-                trailing: SizedBox(
-                  height: 60,
-                  width: 60,
-                  child: CircleAvatar(
-                    radius: 30,
-                    backgroundColor: Colors.white,
-                    child: Image.asset(
-                      model.imagePath,
-                      height: 40,
-                      width: 40,
+      child: SizedBox(
+        height: 90,
+        child: Card(
+          color: AppColors.HISTORY_TILE,
+          child: Row(
+            children: <Widget>[
+              Expanded(
+                child: ListTile(
+                  leading: Text(model.text, style: TextStyles.S_W_20),
+                  trailing: SizedBox(
+                    height: 60,
+                    width: 60,
+                    child: CircleAvatar(
+                      radius: 30,
+                      backgroundColor: Colors.white,
+                      child: Image.asset(
+                        model.imagePath,
+                        height: 40,
+                        width: 40,
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-            //const Icon(Icons.arrow_forward_ios, color: Colors.blue),
-          ],
+              //const Icon(Icons.arrow_forward_ios, color: Colors.blue),
+            ],
+          ),
         ),
       ),
     ),
