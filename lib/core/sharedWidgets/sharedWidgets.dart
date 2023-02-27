@@ -1,3 +1,5 @@
+import 'package:deaflif/core/contants/app_strings.dart';
+import 'package:deaflif/core/contants/measurements.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -16,7 +18,10 @@ class SharedWidgets {
       backgroundColor: AppColors.BACKGROUND,
       title: Padding(
         padding: const EdgeInsets.only(left: 20.0, top: 8),
-        child: Text(Get.currentRoute == "/history" ? "Geçmiş" : Get.currentRoute, style: TextStyles.S_W_24,),
+        child: Text(
+          Get.currentRoute == "/history" ? "Geçmiş" : Get.currentRoute,
+          style: TextStyles.S_W_24,
+        ),
       ),
       automaticallyImplyLeading: true,
       titleSpacing: -10,
@@ -47,32 +52,46 @@ class DrawerCustom extends StatelessWidget {
           isim: "Ana Menü"),
     ];
 
-    List<Widget> drawerListe = [];
-
-    List<Widget> createDraweItems() {
-      drawerListe.add(
-        SizedBox(
-          height: drawerHeaderW,
-          child: DrawerHeader(
-            child: Icon(Icons.ac_unit),
+    List<Widget> drawerListe = [
+      Column(
+        children: [
+          Container(
+            margin: const EdgeInsets.all(
+              60,
+            ),
+            height: 200,
+            width: 200,
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.white, width: 3),
+              borderRadius: const BorderRadius.all(
+                Radius.circular(120),
+              ),
+            ),
+            child: const CircleAvatar(
+              backgroundColor: Colors.transparent,
+              child: Icon(Icons.person, size: 160, color: Colors.white),
+            ),
           ),
+        ],
+      ),
+      Center(
+        child: Text(
+          AppStrings.WELCOME,
+          style: TextStyles.S_W_32,
         ),
-      );
-      for (var item in itemListe) {
-        drawerListe.add(DrawerItemWidget(
-            text: item.isim, icon: item.icon, route: item.routeName));
-      }
-      return drawerListe;
-    }
+      ),
+      const SizedBox(height: 60,),
+      
+      
+    ];
 
     return Drawer(
       backgroundColor: AppColors.BACKGROUND,
-      elevation: 5,
-      width: size.width * 0.7,
+      elevation: 8,
+      width: size.width * 0.75,
       child: ListView(
-        shrinkWrap: true,
         physics: const BouncingScrollPhysics(),
-        children: createDraweItems(),
+        children: drawerListe,
       ),
     );
   }

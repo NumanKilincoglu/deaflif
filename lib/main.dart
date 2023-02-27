@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'core/contants/app_colors.dart';
 import 'core/contants/routes.dart';
 
@@ -15,8 +14,7 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       locale: const Locale("tr", "TR"),
-      theme: ThemeData(
-      ),
+      theme: ThemeData(),
       initialRoute: RouteNames.getHistoryPage(),
       getPages: RouteNames.routes,
       debugShowCheckedModeBanner: false,

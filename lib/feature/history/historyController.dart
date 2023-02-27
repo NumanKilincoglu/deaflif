@@ -9,7 +9,7 @@ class HistoryController extends GetxController {
   void onInit() {
     fakeHistory = [
       HistoryModel(
-          text: "14.40 Kahve Makinası acildi",
+          text: "14.40 Kahve Makinası acildi.",
           imagePath: ImageConstants.instance.getKahve),
       HistoryModel(
           text: "14.00 Buzdolabı açıldı",
