@@ -7,6 +7,8 @@ class TextStyles {
   static TextStyles get instance => _instance ??= TextStyles._init();
 
   TextStyles._init();
+  static TextStyle S_W_14 = const TextStyle(
+      fontSize: 14, color: Colors.white, fontWeight: FontWeight.w400);
   static TextStyle S_W_16 = const TextStyle(
       fontSize: 16, color: Colors.white, fontWeight: FontWeight.w400);
   static TextStyle S_W_18 = const TextStyle(

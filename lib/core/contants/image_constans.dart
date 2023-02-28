@@ -14,6 +14,12 @@ class ImageConstants {
   String get getParmakIzi => toPng('fingerPrint', "icons");
   String get getKayit => toPng('record', "icons");
   String get getDurdur => toPng('stop', "icons");
+  String get getSabah => toPng('noon', "icons");
+  String get getGece => toPng('night', "icons");
+
+  String get getMikrodalga => toPng('microwave', "icons");
+  String get getIsik => toPng('light', "icons");
+  String get getZil => toPng('doorBell', "icons");
 
   String toPng(String name, String path) => 'assets/$path/$name.png';
 }

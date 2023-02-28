@@ -32,11 +32,16 @@ class CustomDecoration {
       side: BorderSide(width: 1, color: Colors.white));
 
   final box30Circular = BoxDecoration(
-      borderRadius: BorderRadius.circular(30), color: Color.fromRGBO(0, 0, 0, 0.25));
+      borderRadius: BorderRadius.circular(30),
+      color: Color.fromRGBO(0, 0, 0, 0.25));
 
-final box100Circular = BoxDecoration(
-      borderRadius: BorderRadius.circular(100), color: Color.fromRGBO(0, 0, 0, 0.25));
+  final box30Circular_W = BoxDecoration(
+      borderRadius: BorderRadius.circular(30),
+      color: Colors.white);
 
+  final box100Circular = BoxDecoration(
+      borderRadius: BorderRadius.circular(100),
+      color: Color.fromRGBO(0, 0, 0, 0.25));
 
   final rounded25C =
       RoundedRectangleBorder(borderRadius: BorderRadius.circular(25));
@@ -73,7 +78,6 @@ final box100Circular = BoxDecoration(
       border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)));
 
   final dropdownBorder = BoxDecoration(
-    border: Border.all(width: 2, color: Colors.white),
-    color: Color.fromRGBO(38, 26, 26, 0.25)
-  );
+      border: Border.all(width: 2, color: Colors.white),
+      color: Color.fromRGBO(38, 26, 26, 0.25));
 }

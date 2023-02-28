@@ -5,6 +5,8 @@ class AppStrings {
   static AppStrings get instance => _instance ??= AppStrings._init();
 
   AppStrings._init();
+  static const String DEAFLIF = "DeafLif";
+
   static const String LOGIN_GIRISYAPILIYOR = "Giriş Yapılıyor";
   static const String LOGIN_GIRIS_YAP = "Giriş Yap";
   static const String LOGIN_GIRIS_YAP_UPPER = "GİRİŞ YAP";

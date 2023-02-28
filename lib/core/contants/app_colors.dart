@@ -7,7 +7,10 @@ class AppColors {
 
   static const Color DROPDOWN_BACKGROUND = Color.fromRGBO(38, 26, 26, 0.25);
 
-  static const Color DROPDOWN_BACKGROUND_DARK = Color.fromRGBO(38, 26, 26, 0.44);
+  static const Color DROPDOWN_BACKGROUND_DARK =
+      Color.fromRGBO(38, 26, 26, 0.44);
+
+  static const Color MENU_TOP = Color(0xff2D5473);
 
   static const Color appBarSube = Colors.white;
 }

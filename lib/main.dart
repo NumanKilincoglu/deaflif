@@ -14,7 +14,7 @@ class MainPage extends StatelessWidget {
     return GetMaterialApp(
       locale: const Locale("tr", "TR"),
       theme: ThemeData(),
-      initialRoute: RouteNames.getAddDevicePage(),
+      initialRoute: RouteNames.getMainPage(),
       getPages: RouteNames.routes,
       debugShowCheckedModeBanner: false,
     );
