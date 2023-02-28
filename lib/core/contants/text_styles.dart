@@ -21,6 +21,14 @@ class TextStyles {
   static TextStyle S_W_24_Fade = const TextStyle(
       fontSize: 24, color: Colors.white54, fontWeight: FontWeight.w400);
 
+//bold
+  static TextStyle S_W_18_B = const TextStyle(
+      fontSize: 18, color: Colors.white, fontWeight: FontWeight.w600);
+
+
+
+  static TextStyle S_B_18 = const TextStyle(
+      fontSize: 18, color: Colors.black, fontWeight: FontWeight.w400);
   /*
   static TextStyle medium21WhiteStyle = GoogleFonts.montserrat(fontSize: 21, color: Colors.white, fontWeight: FontWeight.w700);
   static TextStyle mid12BlackStyle = GoogleFonts.montserrat(fontSize: 12, color: Colors.black, fontWeight: FontWeight.w500);

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'core/contants/app_colors.dart';
 import 'core/contants/routes.dart';
 
 Future<void> main() async {
@@ -15,7 +14,7 @@ class MainPage extends StatelessWidget {
     return GetMaterialApp(
       locale: const Locale("tr", "TR"),
       theme: ThemeData(),
-      initialRoute: RouteNames.getHistoryPage(),
+      initialRoute: RouteNames.getAddDevicePage(),
       getPages: RouteNames.routes,
       debugShowCheckedModeBanner: false,
     );

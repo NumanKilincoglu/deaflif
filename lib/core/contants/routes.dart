@@ -1,5 +1,3 @@
-import 'package:deaflif/main.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../feature/login/loginView.dart';
@@ -37,5 +35,7 @@ class RouteNames {
     GetPage(name: LOGIN_PAGE, page: () => LoginPage()),
     GetPage(name: MAIN_PAGE, page: () => MainView()),
     GetPage(name: HISTORY_PAGE, page: () => HistoryView()),
+    GetPage(name: VIBRATION_PAGE, page: () => VibrationView()),
+    GetPage(name: ADD_DEVICE_PAGE, page: () => AddDeviceView()),
   ];
 }
