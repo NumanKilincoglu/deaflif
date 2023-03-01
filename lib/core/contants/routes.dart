@@ -1,3 +1,4 @@
+import 'package:deaflif/feature/cihazListele/chiazListeleView.dart';
 import 'package:get/get.dart';
 
 import '../../feature/login/loginView.dart';
@@ -16,6 +17,7 @@ class RouteNames {
   static String MORNING_PAGE = "/morning";
   static String NIGHT_PAGE = "/night";
   static String VIBRATION_PAGE = "/vibration";
+  static String DEVICE_LIST = "/deviceList";
 
   static String getLoginPage() => LOGIN_PAGE;
 
@@ -31,11 +33,14 @@ class RouteNames {
 
   static String getVibrationPage() => VIBRATION_PAGE;
 
+  static String getDeviceListPage() => DEVICE_LIST;
+
   static List<GetPage> routes = [
     GetPage(name: LOGIN_PAGE, page: () => LoginPage()),
     GetPage(name: MAIN_PAGE, page: () => MainView()),
     GetPage(name: HISTORY_PAGE, page: () => HistoryView()),
     GetPage(name: VIBRATION_PAGE, page: () => VibrationView()),
     GetPage(name: ADD_DEVICE_PAGE, page: () => AddDeviceView()),
+    GetPage(name: DEVICE_LIST, page: () => DeviceListView()),
   ];
 }

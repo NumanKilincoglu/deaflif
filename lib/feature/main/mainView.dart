@@ -43,7 +43,7 @@ class Body extends StatelessWidget {
       child: Scrollbar(
         thickness: 3,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20),
           child: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
             child: Column(
@@ -64,12 +64,12 @@ class Body extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      UstCard(menuModel: _controller.fakeModel[0], type: "ust"),
-                      UstCard(menuModel: _controller.fakeModel[1], type: "ust"),
+                      UstCard(menuModel: _controller.fakeModel[0]),
+                      UstCard(menuModel: _controller.fakeModel[1]),
                     ],
                   ),
                 ),
-                for (var i = 2; i < _controller.fakeModel.length - 1; i++)
+                for (var i = 2; i < _controller.fakeModel.length - 1; i += 2)
                   Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 5.0, vertical: 15),
@@ -77,11 +77,8 @@ class Body extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        UstCard(
-                            menuModel: _controller.fakeModel[i], type: "alt"),
-                        UstCard(
-                            menuModel: _controller.fakeModel[i + 1],
-                            type: "alt"),
+                        MenuCard(menuModel: _controller.fakeModel[i]),
+                        MenuCard(menuModel: _controller.fakeModel[i + 1]),
                       ],
                     ),
                   ),
@@ -98,10 +95,7 @@ class UstCard extends StatelessWidget {
   UstCard({
     Key? key,
     required this.menuModel,
-    required this.type,
   });
-
-  final String type;
   final MenuModel menuModel;
   final MainMenuController _controller = Get.put(MainMenuController());
 
@@ -109,10 +103,8 @@ class UstCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 150,
-      width: 170,
-      decoration: type == "ust"
-          ? CustomDecoration.instance.box30Circular
-          : CustomDecoration.instance.box30Circular_W,
+      width: 180,
+      decoration: CustomDecoration.instance.box30Circular,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -126,18 +118,23 @@ class UstCard extends StatelessWidget {
                   maxRadius: 30,
                   child: Image.asset(
                     menuModel.imagePath,
-                    height: 100,
-                    width: 100,
+                    height: 50,
+                    width: 50,
                   ),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                child: Obx(
-                  () => Switch(
-                    value: menuModel.switcher.value,
-                    onChanged: (value) =>
-                        _controller.setSwitch(menuModel.switcher),
+                child: Transform.scale(
+                  scale: 0.75,
+                  child: Obx(
+                    () => Switch.adaptive(
+                      activeColor: AppColors.BACKGROUND,
+                      inactiveTrackColor: Colors.white54,
+                      value: menuModel.switcher.value,
+                      onChanged: (value) =>
+                          _controller.setSwitch(menuModel.switcher),
+                    ),
                   ),
                 ),
               )
@@ -160,21 +157,21 @@ class UstCard extends StatelessWidget {
   }
 }
 
-class GridCard extends StatelessWidget {
-  GridCard({
+class MenuCard extends StatelessWidget {
+  MenuCard({
     Key? key,
-    required this.controller,
     required this.menuModel,
   });
 
-  final MainMenuController controller;
   final MenuModel menuModel;
+  final MainMenuController _controller = Get.put(MainMenuController());
+
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 150,
-      width: 170,
-      decoration: CustomDecoration.instance.box30Circular,
+      width: 180,
+      decoration: CustomDecoration.instance.box30Circular_W,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -188,29 +185,53 @@ class GridCard extends StatelessWidget {
                   maxRadius: 30,
                   child: Image.asset(
                     menuModel.imagePath,
-                    height: 100,
-                    width: 100,
+                    height: 50,
+                    width: 50,
                   ),
                 ),
               ),
+              SizedBox(
+                height: 50,
+                width: 100,
+                child: Text(
+                  menuModel.name,
+                  style: TextStyles.S_B_18,
+                ),
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              menuModel.vibrationStatus.value
+                  ? Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 24.0, vertical: 8.0),
+                      child: Image.asset(
+                        ImageConstants.instance.getVibration,
+                        height: 35,
+                        width: 35,
+                      ),
+                    )
+                  : const SizedBox(),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                child: Obx(
-                  () => Switch(
-                    value: menuModel.switcher.value,
-                    onChanged: (value) =>
-                        controller.setSwitch(menuModel.switcher),
+                child: Transform.scale(
+                  scale: 0.75,
+                  child: Obx(
+                    () => Switch.adaptive(
+                      activeColor: AppColors.BACKGROUND,
+                      inactiveTrackColor:
+                          AppColors.BACKGROUND.withOpacity(0.25),
+                      value: menuModel.switcher.value,
+                      onChanged: (value) =>
+                          _controller.setSwitch(menuModel.switcher),
+                    ),
                   ),
                 ),
               )
             ],
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Wrap(
-              children: [],
-            ),
-          ),
+          )
         ],
       ),
     );

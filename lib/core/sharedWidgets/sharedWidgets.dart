@@ -93,7 +93,7 @@ class DrawerCustom extends StatelessWidget {
               icon: ImageConstants.instance.getCihazEkle),
           DrawerItemWidget(
             text: "Ayarlar",
-            route: RouteNames.getLoginPage(),
+            route: RouteNames.getVibrationPage(),
             icon: ImageConstants.instance.getAyarlar,
           ),
           DrawerItemWidget(

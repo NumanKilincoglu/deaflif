@@ -11,35 +11,47 @@ class MainMenuController extends GetxController {
   void onInit() {
     fakeModel = [
       MenuModel(
+          name: "",
           switchBar: "String imagePath",
           text: "Sabah rutininin başlamasına 4 saat 18 dakika kaldı",
           imagePath: ImageConstants.instance.getSabah,
-          switcher: false.obs),
+          switcher: false.obs,
+          vibrationStatus: false.obs),
       MenuModel(
+          name: "",
           switchBar: "String imagePath",
           text: "Gece rutininin başlamasına 4 saat 18 dakika kaldı",
           imagePath: ImageConstants.instance.getGece,
-          switcher: false.obs),
+          switcher: false.obs,
+          vibrationStatus: true.obs),
       MenuModel(
-          switchBar: "String imagePath",
-          text: "String switchBar",
-          imagePath: ImageConstants.instance.getBuzdolabi,
-          switcher: false.obs),
-      MenuModel(
-          switchBar: "String imagePath",
-          text: "Sabah rutininin başlamasına 4 saat 18 dakika kaldı",
-          imagePath: ImageConstants.instance.getKahve,
-          switcher: false.obs),
-      MenuModel(
-          switchBar: "String imagePath",
-          text: "Gece rutininin başlamasına 4 saat 18 dakika kaldı",
-          imagePath: ImageConstants.instance.getZil,
-          switcher: false.obs),
-      MenuModel(
+          name: "Işık",
           switchBar: "String imagePath",
           text: "String switchBar",
           imagePath: ImageConstants.instance.getIsik,
-          switcher: false.obs),
+          switcher: false.obs,
+          vibrationStatus: false.obs),
+      MenuModel(
+          name: "Kahve Makinesi",
+          switchBar: "String imagePath",
+          text: "Sabah rutininin başlamasına 4 saat 18 dakika kaldı",
+          imagePath: ImageConstants.instance.getKahve,
+          switcher: false.obs,
+          vibrationStatus: true.obs),
+      MenuModel(
+          name: "Kapı Zili",
+          switchBar: "String imagePath",
+          text: "Gece rutininin başlamasına 4 saat 18 dakika kaldı",
+          imagePath: ImageConstants.instance.getZil,
+          switcher: false.obs,
+          vibrationStatus: false.obs),
+      MenuModel(
+          name: "Mikrodalga",
+          switchBar: "String imagePath",
+          text: "String switchBar",
+          imagePath: ImageConstants.instance.getMikrodalga,
+          switcher: false.obs,
+          vibrationStatus: false.obs),
     ];
   }
 
