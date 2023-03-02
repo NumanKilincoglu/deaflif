@@ -1,5 +1,4 @@
-import 'package:deaflif/core/contants/image_constans.dart';
-import 'package:deaflif/feature/history/historyModel.dart';
+
 import 'package:get/get.dart';
 
 class CustomDropdownController extends GetxController {

@@ -42,5 +42,6 @@ class RouteNames {
     GetPage(name: VIBRATION_PAGE, page: () => VibrationView()),
     GetPage(name: ADD_DEVICE_PAGE, page: () => AddDeviceView()),
     GetPage(name: DEVICE_LIST, page: () => DeviceListView()),
+    GetPage(name: MORNING_PAGE, page: () => MorningView()),
   ];
 }

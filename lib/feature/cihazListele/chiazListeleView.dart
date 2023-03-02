@@ -1,7 +1,3 @@
-import 'package:deaflif/core/contants/app_colors.dart';
-import 'package:deaflif/core/contants/image_constans.dart';
-import 'package:deaflif/core/contants/measurements.dart';
-import 'package:deaflif/core/contants/routes.dart';
 import 'package:deaflif/core/contants/text_styles.dart';
 import 'package:deaflif/feature/cihazListele/cihazListController.dart';
 import 'package:deaflif/feature/cihazListele/cihazModel.dart';

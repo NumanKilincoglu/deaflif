@@ -7,7 +7,7 @@ class Gradients {
 
   Gradients._init();
 
-  Gradient LoginPageGradients = LinearGradient(
+  Gradient LoginPageGradients = const LinearGradient(
       begin: Alignment.center,
       end: Alignment.topCenter,
       colors: [

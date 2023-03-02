@@ -1,7 +1,6 @@
 import 'package:deaflif/core/contants/app_strings.dart';
 import 'package:deaflif/core/contants/decorations.dart';
 import 'package:deaflif/core/contants/image_constans.dart';
-import 'package:deaflif/core/contants/measurements.dart';
 import 'package:deaflif/core/sharedWidgets/custom_dropdown.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -23,14 +22,34 @@ class SharedWidgets {
       title: Padding(
         padding: const EdgeInsets.only(left: 20.0, top: 8),
         child: Text(
-          Get.currentRoute == "/history" ? "Geçmiş" : Get.currentRoute,
+          getRouteName(),
           style: TextStyles.S_W_24,
         ),
       ),
       automaticallyImplyLeading: true,
       titleSpacing: -10,
-      actions: [],
     );
+  }
+
+  static getRouteName() {
+    String name = Get.currentRoute;
+    return name == "/main"
+        ? "Ana Menü"
+        : name == "/history"
+            ? "Geçmiş"
+            : name == "/addDevice"
+                ? "Cihaz Ekle"
+                : name == "/morning"
+                    ? "Sabah Rutini"
+                    : name == "/night"
+                        ? "Gece Rutini"
+                        : name == "/vibration"
+                            ? "Titreşim Ayarı"
+                            : name == "/login"
+                                ? "Giriş"
+                                : name == "/deviceList"
+                                    ? "Cihaz Listesi"
+                                    : "";
   }
 }
 

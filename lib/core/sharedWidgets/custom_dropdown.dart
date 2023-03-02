@@ -1,4 +1,3 @@
-import 'package:deaflif/core/contants/app_colors.dart';
 import 'package:deaflif/core/contants/text_styles.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';

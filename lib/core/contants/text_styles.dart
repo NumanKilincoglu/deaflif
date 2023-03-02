@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'app_colors.dart';
 
 class TextStyles {
   static TextStyles? _instance;
@@ -20,14 +19,18 @@ class TextStyles {
   static TextStyle S_W_32 = const TextStyle(
       fontSize: 32, color: Colors.white, fontWeight: FontWeight.w400);
 
+  static TextStyle S_W_32_S = const TextStyle(
+      letterSpacing: 0.5,
+      fontSize: 32,
+      color: Colors.white,
+      fontWeight: FontWeight.w400);
+
   static TextStyle S_W_24_Fade = const TextStyle(
       fontSize: 24, color: Colors.white54, fontWeight: FontWeight.w400);
 
 //bold
   static TextStyle S_W_18_B = const TextStyle(
       fontSize: 18, color: Colors.white, fontWeight: FontWeight.w600);
-
-
 
   static TextStyle S_B_18 = const TextStyle(
       fontSize: 18, color: Colors.black, fontWeight: FontWeight.w400);

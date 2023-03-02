@@ -1,7 +1,5 @@
 import 'package:deaflif/core/contants/app_colors.dart';
 import 'package:deaflif/core/contants/image_constans.dart';
-import 'package:deaflif/core/contants/measurements.dart';
-import 'package:deaflif/core/contants/routes.dart';
 import 'package:deaflif/core/contants/text_styles.dart';
 import 'package:deaflif/feature/main/mainController.dart';
 import 'package:flutter/material.dart';
@@ -54,7 +52,7 @@ class Body extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 5.0),
                   child: Text(
                     AppStrings.DEAFLIF,
-                    style: TextStyles.S_W_32,
+                    style: TextStyles.S_W_32_S,
                   ),
                 ),
                 Padding(
