@@ -21,6 +21,7 @@ class ImageConstants {
   String get getIsik => toPng('light', "icons");
   String get getZil => toPng('doorBell', "icons");
   String get getVibration => toPng('vibration', "icons");
+  String get getCihazEkleYeni => toPng('addDeviceIcon', "icons");
 
   String toPng(String name, String path) => 'assets/$path/$name.png';
 }

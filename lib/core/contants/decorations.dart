@@ -33,9 +33,9 @@ class CustomDecoration {
       borderRadius: BorderRadius.circular(30),
       color: Color.fromRGBO(0, 0, 0, 0.25));
 
+
   final box30Circular_W = BoxDecoration(
-      borderRadius: BorderRadius.circular(30),
-      color: Colors.white);
+      borderRadius: BorderRadius.circular(30), color: Colors.white);
 
   final box100Circular = BoxDecoration(
       borderRadius: BorderRadius.circular(100),

@@ -91,7 +91,7 @@ class Body extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      UstCard(menuModel: _controller.fakeModel[0]),
+                      UstCard(deviceModel: _controller.fakeModel[0]),
                     ],
                   ),
                 ),
@@ -138,9 +138,9 @@ class Body extends StatelessWidget {
 class UstCard extends StatelessWidget {
   UstCard({
     Key? key,
-    required this.menuModel,
+    required this.deviceModel,
   });
-  final DeviceModel menuModel;
+  final DeviceModel deviceModel;
   final MainMenuController _controller = Get.put(MainMenuController());
 
   @override
@@ -148,7 +148,7 @@ class UstCard extends StatelessWidget {
     return Container(
       height: 150,
       width: 180,
-      decoration: CustomDecoration.instance.box30Circular,
+      decoration: CustomDecoration.instance.box30Circular_W,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -161,12 +161,36 @@ class UstCard extends StatelessWidget {
                   backgroundColor: Colors.white,
                   maxRadius: 30,
                   child: Image.asset(
-                    menuModel.imagePath,
-                    height: 50,
-                    width: 50,
+                    deviceModel.imagePath,
+                    height: 60,
+                    width: 60,
                   ),
                 ),
               ),
+              SizedBox(
+                height: 40,
+                width: 100,
+                child: Text(
+                  AppStrings.CIHAZ_EKLE,
+                  style: TextStyles.S_B_18,
+                ),
+              )
+            ],
+          ),
+                    Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              deviceModel.vibrationStatus.value
+                  ? Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 24.0, vertical: 8.0),
+                      child: Image.asset(
+                        ImageConstants.instance.getVibration,
+                        height: 35,
+                        width: 35,
+                      ),
+                    )
+                  : const SizedBox(),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 12.0),
                 child: Transform.scale(
@@ -174,26 +198,16 @@ class UstCard extends StatelessWidget {
                   child: Obx(
                     () => Switch.adaptive(
                       activeColor: AppColors.BACKGROUND,
-                      inactiveTrackColor: Colors.white54,
-                      value: menuModel.switcher.value,
+                      inactiveTrackColor:
+                          AppColors.BACKGROUND.withOpacity(0.25),
+                      value: deviceModel.switcher.value,
                       onChanged: (value) =>
-                          _controller.setSwitch(menuModel.switcher),
+                          _controller.setSwitch(deviceModel.switcher),
                     ),
                   ),
                 ),
               )
             ],
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Wrap(
-              children: [
-                Text(
-                  menuModel.name,
-                  style: TextStyles.S_W_14,
-                ),
-              ],
-            ),
           ),
         ],
       ),
@@ -275,7 +289,7 @@ class MenuCard extends StatelessWidget {
                 ),
               )
             ],
-          )
+          ),
         ],
       ),
     );

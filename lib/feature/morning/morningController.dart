@@ -15,9 +15,9 @@ class MorningController extends GetxController {
       DeviceModel(
           name: "",
           switchBar: "String imagePath",
-          imagePath: ImageConstants.instance.getSabah,
+          imagePath: ImageConstants.instance.getCihazEkleYeni,
           switcher: false.obs,
-          vibrationStatus: false.obs),
+          vibrationStatus: true.obs),
       DeviceModel(
           name: "",
           switchBar: "String imagePath",
