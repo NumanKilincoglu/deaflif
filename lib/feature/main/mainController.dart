@@ -67,4 +67,8 @@ class MainMenuController extends GetxController {
     switcher.value = !switcher.value;
     print(switcher.value);
   }
+
+  void goRoute(String route) {
+    Get.toNamed(route);
+  }
 }

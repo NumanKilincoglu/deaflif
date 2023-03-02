@@ -9,6 +9,7 @@ import '../contants/app_colors.dart';
 import '../contants/routes.dart';
 import '../contants/text_styles.dart';
 import '../sharedControllers/custom_dropdown_controller.dart';
+import 'back_button.dart';
 
 class SharedWidgets {
   static AppBar appBarCustom(Size size) {
@@ -19,11 +20,27 @@ class SharedWidgets {
       toolbarHeight: size.height * 0.05,
       iconTheme: const IconThemeData(size: 40, color: Colors.white),
       backgroundColor: AppColors.BACKGROUND,
-      title: Padding(
-        padding: const EdgeInsets.only(left: 20.0, top: 8),
-        child: Text(
-          getRouteName(),
-          style: TextStyles.S_W_24,
+      title: SizedBox(
+        height: size.height * 0.05,
+        width: 250,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            if (Get.currentRoute != "/main")
+              Padding(
+                padding: const EdgeInsets.only(top: 6.0),
+                child: BackButtonCustom(),
+              ),
+            Padding(
+              padding: EdgeInsets.only(
+                  top: 12.0, left: Get.currentRoute == "/main" ? 12.0 : 0),
+              child: Text(
+                getRouteName(),
+                style: TextStyles.S_W_24,
+              ),
+            ),
+          ],
         ),
       ),
       automaticallyImplyLeading: true,

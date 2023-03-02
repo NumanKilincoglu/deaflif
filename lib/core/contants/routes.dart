@@ -43,5 +43,6 @@ class RouteNames {
     GetPage(name: ADD_DEVICE_PAGE, page: () => AddDeviceView()),
     GetPage(name: DEVICE_LIST, page: () => DeviceListView()),
     GetPage(name: MORNING_PAGE, page: () => MorningView()),
+    GetPage(name: NIGHT_PAGE, page: () => NightView()),
   ];
 }

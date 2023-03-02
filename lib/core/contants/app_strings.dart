@@ -29,7 +29,7 @@ class AppStrings {
   static const String RUTIN = "Rutin";
 
   static const String MORNING_TEXT = "9.00' dan sonra";
-  static const String NIGHT_TEXT = "9.00' dan sonra";
+  static const String NIGHT_TEXT = "21.00' dan sonra";
 
   static const String LOGIN_MAIL = "Email";
   static const String LOGIN_PASSWORD = "Şifre";

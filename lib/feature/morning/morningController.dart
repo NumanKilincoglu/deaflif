@@ -1,13 +1,12 @@
 import 'package:deaflif/core/contants/image_constans.dart';
-import 'package:deaflif/feature/morning/DeviceModel.dart';
 import 'package:get/get.dart';
+import '../../core/sharedModels/deviceModel.dart';
 
 class MorningController extends GetxController {
   List<DeviceModel> fakeModel = <DeviceModel>[].obs;
   RxBool sabah = false.obs;
   RxBool aksam = false.obs;
-    RxBool sabahRutini = false.obs;
-
+  RxBool sabahRutini = false.obs;
 
   @override
   void onInit() {

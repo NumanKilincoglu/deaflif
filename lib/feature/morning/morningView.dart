@@ -2,13 +2,13 @@ import 'package:deaflif/core/contants/app_colors.dart';
 import 'package:deaflif/core/contants/image_constans.dart';
 import 'package:deaflif/core/contants/text_styles.dart';
 import 'package:deaflif/feature/main/mainController.dart';
-import 'package:deaflif/feature/morning/DeviceModel.dart';
 import 'package:deaflif/feature/morning/morningController.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import '../../core/contants/app_strings.dart';
 import '../../core/contants/decorations.dart';
+import '../../core/sharedModels/deviceModel.dart';
 import '../../core/sharedWidgets/sharedWidgets.dart';
 import '../../core/contants/gradients.dart';
 
@@ -177,7 +177,7 @@ class UstCard extends StatelessWidget {
               )
             ],
           ),
-                    Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               deviceModel.vibrationStatus.value

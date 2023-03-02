@@ -1,5 +1,6 @@
 import 'package:deaflif/core/contants/app_colors.dart';
 import 'package:deaflif/core/contants/image_constans.dart';
+import 'package:deaflif/core/contants/routes.dart';
 import 'package:deaflif/core/contants/text_styles.dart';
 import 'package:deaflif/feature/main/mainController.dart';
 import 'package:flutter/material.dart';
@@ -62,8 +63,18 @@ class Body extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      UstCard(menuModel: _controller.fakeModel[0]),
-                      UstCard(menuModel: _controller.fakeModel[1]),
+                      UstButton(
+                        menuModel: _controller.fakeModel[0],
+                        fun: () => _controller.goRoute(
+                          RouteNames.getMorningPage(),
+                        ),
+                      ),
+                      UstButton(
+                        menuModel: _controller.fakeModel[1],
+                        fun: () => _controller.goRoute(
+                          RouteNames.getNightPage(),
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -89,67 +100,72 @@ class Body extends StatelessWidget {
   }
 }
 
-class UstCard extends StatelessWidget {
-  UstCard({
+class UstButton extends StatelessWidget {
+  UstButton({
     Key? key,
     required this.menuModel,
+    required this.fun,
   });
   final MenuModel menuModel;
   final MainMenuController _controller = Get.put(MainMenuController());
+  Function() fun;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 150,
-      width: 180,
-      decoration: CustomDecoration.instance.box30Circular,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 8.0),
-                child: CircleAvatar(
-                  backgroundColor: Colors.white,
-                  maxRadius: 30,
-                  child: Image.asset(
-                    menuModel.imagePath,
-                    height: 50,
-                    width: 50,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                child: Transform.scale(
-                  scale: 0.75,
-                  child: Obx(
-                    () => Switch.adaptive(
-                      activeColor: AppColors.BACKGROUND,
-                      inactiveTrackColor: Colors.white54,
-                      value: menuModel.switcher.value,
-                      onChanged: (value) =>
-                          _controller.setSwitch(menuModel.switcher),
+    return GestureDetector(
+      onTap: () => fun(),
+      child: Container(
+        height: 150,
+        width: 180,
+        decoration: CustomDecoration.instance.box30Circular,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 10.0, vertical: 8.0),
+                  child: CircleAvatar(
+                    backgroundColor: Colors.white,
+                    maxRadius: 30,
+                    child: Image.asset(
+                      menuModel.imagePath,
+                      height: 50,
+                      width: 50,
                     ),
                   ),
                 ),
-              )
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Wrap(
-              children: [
-                Text(
-                  menuModel.text,
-                  style: TextStyles.S_W_14,
-                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                  child: Transform.scale(
+                    scale: 0.75,
+                    child: Obx(
+                      () => Switch.adaptive(
+                        activeColor: AppColors.BACKGROUND,
+                        inactiveTrackColor: Colors.white54,
+                        value: menuModel.switcher.value,
+                        onChanged: (value) =>
+                            _controller.setSwitch(menuModel.switcher),
+                      ),
+                    ),
+                  ),
+                )
               ],
             ),
-          ),
-        ],
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: Wrap(
+                children: [
+                  Text(
+                    menuModel.text,
+                    style: TextStyles.S_W_14,
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
