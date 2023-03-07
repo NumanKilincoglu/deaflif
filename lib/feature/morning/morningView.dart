@@ -1,5 +1,6 @@
 import 'package:deaflif/core/contants/app_colors.dart';
 import 'package:deaflif/core/contants/image_constans.dart';
+import 'package:deaflif/core/contants/routes.dart';
 import 'package:deaflif/core/contants/text_styles.dart';
 import 'package:deaflif/feature/main/mainController.dart';
 import 'package:deaflif/feature/morning/morningController.dart';
@@ -65,7 +66,7 @@ class Body extends StatelessWidget {
                         scale: 0.75,
                         child: Obx(
                           () => Switch.adaptive(
-                            activeColor: AppColors.BACKGROUND,
+                            activeColor: Colors.lightGreen,
                             inactiveTrackColor: Colors.white54,
                             value: _controller.sabahRutini.value,
                             onChanged: (value) =>
@@ -145,71 +146,74 @@ class UstCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 150,
-      width: 180,
-      decoration: CustomDecoration.instance.box30Circular_W,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 8.0),
-                child: CircleAvatar(
-                  backgroundColor: Colors.white,
-                  maxRadius: 30,
-                  child: Image.asset(
-                    deviceModel.imagePath,
-                    height: 60,
-                    width: 60,
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 40,
-                width: 100,
-                child: Text(
-                  AppStrings.CIHAZ_EKLE,
-                  style: TextStyles.S_B_18,
-                ),
-              )
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              deviceModel.vibrationStatus.value
-                  ? Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 24.0, vertical: 8.0),
-                      child: Image.asset(
-                        ImageConstants.instance.getVibration,
-                        height: 35,
-                        width: 35,
-                      ),
-                    )
-                  : const SizedBox(),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                child: Transform.scale(
-                  scale: 0.75,
-                  child: Obx(
-                    () => Switch.adaptive(
-                      activeColor: AppColors.BACKGROUND,
-                      inactiveTrackColor:
-                          AppColors.BACKGROUND.withOpacity(0.25),
-                      value: deviceModel.switcher.value,
-                      onChanged: (value) =>
-                          _controller.setSwitch(deviceModel.switcher),
+    return GestureDetector(
+      onTap: () => Get.toNamed(RouteNames.getAddDevicePage()),
+      child: Container(
+        height: 150,
+        width: 180,
+        decoration: CustomDecoration.instance.box30Circular_W,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 10.0, vertical: 8.0),
+                  child: CircleAvatar(
+                    backgroundColor: Colors.white,
+                    maxRadius: 30,
+                    child: Image.asset(
+                      deviceModel.imagePath,
+                      height: 60,
+                      width: 60,
                     ),
                   ),
                 ),
-              )
-            ],
-          ),
-        ],
+                SizedBox(
+                  height: 40,
+                  width: 100,
+                  child: Text(
+                    AppStrings.CIHAZ_EKLE,
+                    style: TextStyles.S_B_18,
+                  ),
+                )
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                deviceModel.vibrationStatus.value
+                    ? Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 24.0, vertical: 8.0),
+                        child: Image.asset(
+                          ImageConstants.instance.getVibration,
+                          height: 35,
+                          width: 35,
+                        ),
+                      )
+                    : const SizedBox(),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                  child: Transform.scale(
+                    scale: 0.75,
+                    child: Obx(
+                      () => Switch.adaptive(
+                        activeColor: AppColors.BACKGROUND,
+                        inactiveTrackColor:
+                            AppColors.BACKGROUND.withOpacity(0.25),
+                        value: deviceModel.switcher.value,
+                        onChanged: (value) =>
+                            _controller.setSwitch(deviceModel.switcher),
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

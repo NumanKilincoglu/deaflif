@@ -4,7 +4,6 @@ import 'package:deaflif/core/contants/image_constans.dart';
 import 'package:deaflif/core/sharedWidgets/custom_dropdown.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../contants/app_colors.dart';
 import '../contants/routes.dart';
 import '../contants/text_styles.dart';
@@ -50,6 +49,7 @@ class SharedWidgets {
 
   static getRouteName() {
     String name = Get.currentRoute;
+    print(name);
     return name == "/main"
         ? "Ana Menü"
         : name == "/history"

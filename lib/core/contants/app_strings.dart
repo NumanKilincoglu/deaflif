@@ -14,7 +14,6 @@ class AppStrings {
 
   static const String CIHAZ_EKLE = "Cihaz Ekle";
 
-
   static const String RECORD = "Kaydı Başlat";
   static const String STOP = "Kaydı Durdur";
 

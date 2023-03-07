@@ -62,24 +62,35 @@ class Body extends StatelessWidget {
             child: CustomDropdown(AppColors.DROPDOWN_BACKGROUND, 45, "",
                 _controller.cihazListe, _controller.secilen),
           ),
-          Container(
-            margin: buttonMargin,
-            color: AppColors.DROPDOWN_BACKGROUND,
-            height: 200,
-            width: 200,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  ImageConstants.instance.getKayit,
-                  height: 130,
-                  width: 130,
-                ),
-                Text(
-                  AppStrings.RECORD,
-                  style: TextStyles.S_W_20,
-                )
-              ],
+          GestureDetector(
+            onTap: () => _controller.setRun(),
+            child: Container(
+              margin: buttonMargin,
+              color: AppColors.DROPDOWN_BACKGROUND,
+              height: 200,
+              width: 200,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Obx(
+                    () => Image.asset(
+                      _controller.isRunning.value
+                          ? ImageConstants.instance.getDurdur
+                          : ImageConstants.instance.getKayit,
+                      height: 130,
+                      width: 130,
+                    ),
+                  ),
+                  Obx(
+                    () => Text(
+                      _controller.isRunning.value
+                          ? AppStrings.STOP
+                          : AppStrings.RECORD,
+                      style: TextStyles.S_W_20,
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ],
