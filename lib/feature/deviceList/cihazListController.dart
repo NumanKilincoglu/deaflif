@@ -1,4 +1,4 @@
-import 'package:deaflif/feature/cihazListele/cihazModel.dart';
+import 'package:deaflif/feature/deviceList/cihazModel.dart';
 import 'package:get/get.dart';
 
 import '../../core/contants/image_constans.dart';

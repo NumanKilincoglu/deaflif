@@ -1,6 +1,6 @@
 import 'package:deaflif/core/contants/text_styles.dart';
-import 'package:deaflif/feature/cihazListele/cihazListController.dart';
-import 'package:deaflif/feature/cihazListele/cihazModel.dart';
+import 'package:deaflif/feature/deviceList/cihazListController.dart';
+import 'package:deaflif/feature/deviceList/cihazModel.dart';
 import 'package:deaflif/feature/main/mainController.dart';
 import 'package:flutter/material.dart';
 

@@ -3,7 +3,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'dart:math' as math;
-
 import '../contants/decorations.dart';
 
 Container CustomDropdown(Color color, double height, String type,

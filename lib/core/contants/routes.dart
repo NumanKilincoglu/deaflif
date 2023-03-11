@@ -1,6 +1,5 @@
-import 'package:deaflif/feature/cihazListele/chiazListeleView.dart';
 import 'package:get/get.dart';
-
+import '../../feature/deviceList/chiazListeleView.dart';
 import '../../feature/login/loginView.dart';
 import '../../feature/history/historyView.dart';
 import '../../feature/addDevice/addDeviceView.dart';

@@ -88,7 +88,7 @@ class Body extends StatelessWidget {
                           : AppStrings.RECORD,
                       style: TextStyles.S_W_20,
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
