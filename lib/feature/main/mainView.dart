@@ -217,14 +217,22 @@ class MenuCard extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              menuModel.vibrationStatus.value
+              const SizedBox(width: 40.0),
+              menuModel.vibrationExists.value
                   ? Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 24.0, vertical: 8.0),
-                      child: Image.asset(
-                        ImageConstants.instance.getVibration,
-                        height: 35,
-                        width: 35,
+                          horizontal: 2.0, vertical: 8.0),
+                      child: GestureDetector(
+                        onTap: () => _controller.setVibration(menuModel.id),
+                        child: Obx(
+                          () => Image.asset(
+                            menuModel.vibrationStatus.value
+                                ? ImageConstants.instance.getVibration
+                                : ImageConstants.instance.getVibrationNot,
+                            height: 35,
+                            width: 35,
+                          ),
+                        ),
                       ),
                     )
                   : const SizedBox(),

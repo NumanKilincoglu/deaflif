@@ -9,7 +9,7 @@ class AddDeviceController extends GetxController {
   List<String> titresimListe = <String>["Titreşim Var", "Titreşim Yok"].obs;
 
   List<int> pattern = [1, 22, 33];
-  late RxString secilenCihaz;
+  late Rx<DeviceModel> secilenCihaz;
   late RxString cihazKontrolu;
   late RxString cihazTitresimDurumu;
 
@@ -54,21 +54,20 @@ class AddDeviceController extends GetxController {
       ),
     ];
 
-    secilenCihaz = "".obs;
+    secilenCihaz = cihazListe[0].obs;
     cihazKontrolu = cihazKontrolListe[0].obs;
     cihazTitresimDurumu = titresimListe[0].obs;
   }
 
-
   getInt() {
     return DeviceModel(
-        id: 6,
-        name: "Zil",
-        control: false,
-        macAdress: "233940153",
-        vibrationPattern: pattern,
-        vibration: false,
-        imagePath: ImageConstants.instance.getZil,
-      );
+      id: 6,
+      name: "Zil",
+      control: false,
+      macAdress: "233940153",
+      vibrationPattern: pattern,
+      vibration: false,
+      imagePath: ImageConstants.instance.getZil,
+    );
   }
 }

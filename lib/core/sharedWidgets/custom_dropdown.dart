@@ -41,7 +41,7 @@ Container CustomDropdown(Color color, double height, String type,
               alignment: Alignment.centerLeft,
               value: item,
               child: Padding(
-                padding: const EdgeInsets.only(left: 12.0),
+                padding: const EdgeInsets.only(left: 12.0, top: 6),
                 child: Text(item, style: TextStyles.S_W_18),
               ),
             );

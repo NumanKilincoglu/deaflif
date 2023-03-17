@@ -123,8 +123,9 @@ class Body extends StatelessWidget {
   }
 }
 
+//Cihaz ismi icin ozel dropdown listesi. Bu liste cihaz nesnelerine maplenmistir!!!
 Container CustomDropdownDevice(Color color, double height, String type,
-    List<DeviceModel> liste, RxString secilen) {
+    List<DeviceModel> liste, Rx<DeviceModel> secilen) {
   final AddDeviceController controller = Get.put(AddDeviceController());
   return Container(
     height: height,
@@ -153,14 +154,14 @@ Container CustomDropdownDevice(Color color, double height, String type,
         borderRadius: BorderRadius.circular(8),
         underline: Container(color: Colors.white),
         isExpanded: true,
-        value: controller.getInt(),
+        value: secilen.value,
         items: liste.map(
           (item) {
             return DropdownMenuItem(
               alignment: Alignment.centerLeft,
               value: item,
               child: Padding(
-                padding: const EdgeInsets.only(left: 12.0),
+                padding: const EdgeInsets.only(left: 12.0, top: 6),
                 child: Text(item.name, style: TextStyles.S_W_18),
               ),
             );
@@ -168,8 +169,8 @@ Container CustomDropdownDevice(Color color, double height, String type,
         ).toList(),
         onChanged: (value) {
           if (kDebugMode) {
-            print(value);
-            //secilen.value = value.id.toString();
+            print(value?.name);
+            secilen.value = value ?? liste[0];
           }
         },
       ),
