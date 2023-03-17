@@ -3,6 +3,7 @@ import 'package:deaflif/core/contants/image_constans.dart';
 import 'package:deaflif/core/contants/routes.dart';
 import 'package:deaflif/core/contants/text_styles.dart';
 import 'package:deaflif/feature/main/mainController.dart';
+import 'package:deaflif/feature/main/menu_model.dart';
 import 'package:deaflif/feature/morning/morningController.dart';
 import 'package:flutter/material.dart';
 
@@ -92,7 +93,7 @@ class Body extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      UstCard(deviceModel: _controller.fakeModel[0]),
+                      UstCard(menuModel: _controller.mock[0]),
                     ],
                   ),
                 ),
@@ -114,7 +115,7 @@ class Body extends StatelessWidget {
                     ],
                   ),
                 ),
-                for (var i = 2; i < _controller.fakeModel.length - 1; i += 2)
+                for (var i = 2; i < _controller.mock.length - 1; i += 2)
                   Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 5.0, vertical: 15),
@@ -122,8 +123,8 @@ class Body extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        MenuCard(menuModel: _controller.fakeModel[i]),
-                        MenuCard(menuModel: _controller.fakeModel[i + 1]),
+                        MenuCard(menuModel: _controller.mock[i]),
+                        MenuCard(menuModel: _controller.mock[i + 1]),
                       ],
                     ),
                   ),
@@ -139,9 +140,9 @@ class Body extends StatelessWidget {
 class UstCard extends StatelessWidget {
   UstCard({
     Key? key,
-    required this.deviceModel,
+    required this.menuModel,
   });
-  final DeviceModel deviceModel;
+  final MenuModel menuModel;
   final MainMenuController _controller = Get.put(MainMenuController());
 
   @override
@@ -164,7 +165,7 @@ class UstCard extends StatelessWidget {
                     backgroundColor: Colors.white,
                     maxRadius: 30,
                     child: Image.asset(
-                      deviceModel.imagePath,
+                      menuModel.imagePath,
                       height: 60,
                       width: 60,
                     ),
@@ -183,14 +184,21 @@ class UstCard extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                deviceModel.vibrationStatus.value
+                menuModel.vibrationExists.value
                     ? Padding(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 24.0, vertical: 8.0),
-                        child: Image.asset(
-                          ImageConstants.instance.getVibration,
-                          height: 35,
-                          width: 35,
+                            horizontal: 2.0, vertical: 8.0),
+                        child: GestureDetector(
+                          onTap: () => _controller.setVibration(menuModel.id),
+                          child: Obx(
+                            () => Image.asset(
+                              menuModel.vibrationStatus.value
+                                  ? ImageConstants.instance.getVibration
+                                  : ImageConstants.instance.getVibrationNot,
+                              height: 35,
+                              width: 35,
+                            ),
+                          ),
                         ),
                       )
                     : const SizedBox(),
@@ -203,9 +211,9 @@ class UstCard extends StatelessWidget {
                         activeColor: AppColors.BACKGROUND,
                         inactiveTrackColor:
                             AppColors.BACKGROUND.withOpacity(0.25),
-                        value: deviceModel.switcher.value,
+                        value: menuModel.switcher.value,
                         onChanged: (value) =>
-                            _controller.setSwitch(deviceModel.switcher),
+                            _controller.setSwitch(menuModel.switcher),
                       ),
                     ),
                   ),
@@ -225,8 +233,8 @@ class MenuCard extends StatelessWidget {
     required this.menuModel,
   });
 
-  final DeviceModel menuModel;
-  final MainMenuController _controller = Get.put(MainMenuController());
+  final MenuModel menuModel;
+  final MorningController _controller = Get.put(MorningController());
 
   @override
   Widget build(BuildContext context) {
@@ -263,21 +271,28 @@ class MenuCard extends StatelessWidget {
             ],
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              menuModel.vibrationStatus.value
+              menuModel.vibrationExists.value
                   ? Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 24.0, vertical: 8.0),
-                      child: Image.asset(
-                        ImageConstants.instance.getVibration,
-                        height: 35,
-                        width: 35,
+                          horizontal: 4.0, vertical: 8.0),
+                      child: GestureDetector(
+                        onTap: () => _controller.setVibration(menuModel.id),
+                        child: Obx(
+                          () => Image.asset(
+                            menuModel.vibrationStatus.value
+                                ? ImageConstants.instance.getVibration
+                                : ImageConstants.instance.getVibrationNot,
+                            height: 35,
+                            width: 35,
+                          ),
+                        ),
                       ),
                     )
                   : const SizedBox(),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                padding: const EdgeInsets.only(right: 12.0),
                 child: Transform.scale(
                   scale: 0.75,
                   child: Obx(

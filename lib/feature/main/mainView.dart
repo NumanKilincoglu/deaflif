@@ -215,13 +215,12 @@ class MenuCard extends StatelessWidget {
             ],
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              const SizedBox(width: 40.0),
               menuModel.vibrationExists.value
                   ? Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 2.0, vertical: 8.0),
+                          horizontal: 4.0, vertical: 8.0),
                       child: GestureDetector(
                         onTap: () => _controller.setVibration(menuModel.id),
                         child: Obx(
@@ -237,7 +236,7 @@ class MenuCard extends StatelessWidget {
                     )
                   : const SizedBox(),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                padding: const EdgeInsets.only(right: 12.0),
                 child: Transform.scale(
                   scale: 0.75,
                   child: Obx(

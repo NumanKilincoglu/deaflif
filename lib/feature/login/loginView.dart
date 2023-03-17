@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../core/contants/app_strings.dart';
 import '../../core/contants/decorations.dart';
-import '../../core/sharedWidgets/sharedWidgets.dart';
 import '../../core/contants/gradients.dart';
 
 class LoginPage extends StatelessWidget {
@@ -17,11 +16,9 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    return Scaffold(
+    return const Scaffold(
       resizeToAvoidBottomInset: false,
-      drawer: DrawerCustom(size: size),
-      drawerScrimColor: Colors.black87,
-      body: const Body(),
+      body: Body(),
     );
   }
 }
