@@ -16,18 +16,18 @@ Container CustomDropdown(Color color, double height, String type,
         hint: Text(
           textAlign: TextAlign.start,
           type,
-          style: TextStyles.S_W_18,
+          style: TextStyles.B_W_18,
         ),
         elevation: 0,
         dropdownColor: Colors.black,
         icon: Padding(
-          padding: const EdgeInsets.only(right: 15.0, top: 10),
+          padding: const EdgeInsets.only(right: 15.0),
           child: Transform.rotate(
             angle: 270 * math.pi / 180,
             child: const Icon(
               Icons.arrow_back_ios_new_rounded,
               color: Colors.white,
-              size: 20,
+              size: 24,
             ),
           ),
         ),
@@ -41,8 +41,8 @@ Container CustomDropdown(Color color, double height, String type,
               alignment: Alignment.centerLeft,
               value: item,
               child: Padding(
-                padding: const EdgeInsets.only(left: 12.0, top: 6),
-                child: Text(item, style: TextStyles.S_W_18),
+                padding: const EdgeInsets.only(left: 15.0),
+                child: Text(item, style: TextStyles.B_W_18),
               ),
             );
           },

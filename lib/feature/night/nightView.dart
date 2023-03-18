@@ -82,9 +82,31 @@ class Body extends StatelessWidget {
                 Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 5.0, vertical: 10),
-                  child: Text(
-                    AppStrings.NIGHT_TEXT,
-                    style: TextStyles.S_W_16,
+                  child: TextButton(
+                    onPressed: () => _show(context),
+                    child: Obx(
+                      () => RichText(
+                        text: TextSpan(
+                          children: <TextSpan>[
+                            TextSpan(
+                              text: _controller.zaman.value,
+                              style: const TextStyle(
+                                  decoration: TextDecoration.underline,
+                                  fontSize: 18,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            const TextSpan(
+                              text: " 'dan sonra",
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                   ),
                 ),
                 Padding(
@@ -135,6 +157,15 @@ class Body extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<void> _show(BuildContext context) async {
+    final TimeOfDay? result =
+        await showTimePicker(context: context, initialTime: TimeOfDay.now());
+    if (result != null) {
+      _controller.zaman.value = result.format(context);
+      print(_controller.zaman.value);
+    }
   }
 }
 

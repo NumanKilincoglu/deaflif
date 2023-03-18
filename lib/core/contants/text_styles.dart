@@ -12,6 +12,8 @@ class TextStyles {
       fontSize: 16, color: Colors.white, fontWeight: FontWeight.w400);
   static TextStyle S_W_18 = const TextStyle(
       fontSize: 18, color: Colors.white, fontWeight: FontWeight.w400);
+  static TextStyle B_W_18 = const TextStyle(
+      fontSize: 18, color: Colors.white, fontWeight: FontWeight.w600);
   static TextStyle S_W_20 = const TextStyle(
       fontSize: 20, color: Colors.white, fontWeight: FontWeight.w400);
   static TextStyle S_W_24 = const TextStyle(

@@ -8,6 +8,7 @@ import 'package:deaflif/feature/morning/morningController.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:numberpicker/numberpicker.dart';
 import '../../core/contants/app_strings.dart';
 import '../../core/contants/decorations.dart';
 import '../../core/sharedModels/deviceModel.dart';
@@ -34,6 +35,7 @@ class MorningView extends StatelessWidget {
 class Body extends StatelessWidget {
   Body({Key? key}) : super(key: key);
   final MorningController _controller = Get.put(MorningController());
+  late String time;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -79,11 +81,32 @@ class Body extends StatelessWidget {
                   ],
                 ),
                 Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 5.0, vertical: 10),
-                  child: Text(
-                    AppStrings.MORNING_TEXT,
-                    style: TextStyles.S_W_16,
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  child: TextButton(
+                    onPressed: () => _show(context),
+                    child: Obx(
+                      () => RichText(
+                        text: TextSpan(
+                          children: <TextSpan>[
+                            TextSpan(
+                              text: _controller.zaman.value,
+                              style: const TextStyle(
+                                  decoration: TextDecoration.underline,
+                                  fontSize: 18,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            const TextSpan(
+                              text: " 'dan sonra",
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                   ),
                 ),
                 Padding(
@@ -134,6 +157,15 @@ class Body extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<void> _show(BuildContext context) async {
+    final TimeOfDay? result =
+        await showTimePicker(context: context, initialTime: TimeOfDay.now());
+    if (result != null) {
+      _controller.zaman.value = result.format(context);
+      print(_controller.zaman.value);
+    }
   }
 }
 

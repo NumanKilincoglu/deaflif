@@ -8,6 +8,7 @@ class MorningController extends GetxController {
   RxBool sabah = false.obs;
   RxBool aksam = false.obs;
   RxBool sabahRutini = false.obs;
+  RxString zaman = "9.00 AM".obs;
 
   @override
   void onInit() {
