@@ -64,12 +64,14 @@ class Body extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       UstButton(
+                        type: "sabah",
                         menuModel: _controller.fakeModel[0],
                         fun: () => _controller.goRoute(
                           RouteNames.getMorningPage(),
                         ),
                       ),
                       UstButton(
+                        type: "aksam",
                         menuModel: _controller.fakeModel[1],
                         fun: () => _controller.goRoute(
                           RouteNames.getNightPage(),
@@ -101,11 +103,12 @@ class Body extends StatelessWidget {
 }
 
 class UstButton extends StatelessWidget {
-  UstButton({
-    Key? key,
-    required this.menuModel,
-    required this.fun,
-  });
+  UstButton(
+      {Key? key,
+      required this.menuModel,
+      required this.fun,
+      required this.type});
+  final String type;
   final MenuModel menuModel;
   final MainMenuController _controller = Get.put(MainMenuController());
   Function() fun;
@@ -157,9 +160,16 @@ class UstButton extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: Wrap(
                 children: [
-                  Text(
-                    menuModel.text,
-                    style: TextStyles.S_W_14,
+                  Obx(
+                    () => type == "sabah"
+                        ? Text(
+                            "Sabah rutininin başlamasına ${_controller.gunduzSaat} saat ${_controller.gunduzDakika} dakika kaldı",
+                            style: TextStyles.S_W_14,
+                          )
+                        : Text(
+                            "Akşam rutininin başlamasına ${_controller.geceSaat} saat ${_controller.geceDakika} dakika kaldı",
+                            style: TextStyles.S_W_14,
+                          ),
                   ),
                 ],
               ),

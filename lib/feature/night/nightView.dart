@@ -11,6 +11,7 @@ import 'package:get/get.dart';
 import '../../core/contants/app_strings.dart';
 import '../../core/contants/decorations.dart';
 import '../../core/contants/routes.dart';
+import '../../core/sharedControllers/rutinZamanController.dart';
 import '../../core/sharedModels/deviceModel.dart';
 import '../../core/sharedWidgets/sharedWidgets.dart';
 import '../../core/contants/gradients.dart';
@@ -35,6 +36,8 @@ class NightView extends StatelessWidget {
 class Body extends StatelessWidget {
   Body({Key? key}) : super(key: key);
   final NightController _controller = Get.put(NightController());
+  final RutinController _rutinController = Get.put(RutinController());
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -89,7 +92,7 @@ class Body extends StatelessWidget {
                         text: TextSpan(
                           children: <TextSpan>[
                             TextSpan(
-                              text: _controller.zaman.value,
+                              text: _rutinController.aksamRutinZaman.value,
                               style: const TextStyle(
                                   decoration: TextDecoration.underline,
                                   fontSize: 18,
@@ -163,7 +166,7 @@ class Body extends StatelessWidget {
     final TimeOfDay? result =
         await showTimePicker(context: context, initialTime: TimeOfDay.now());
     if (result != null) {
-      _controller.zaman.value = result.format(context);
+      _rutinController.aksamRutinZaman.value = result.format(context);
       print(_controller.zaman.value);
     }
   }

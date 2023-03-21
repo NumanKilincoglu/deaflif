@@ -1,7 +1,6 @@
 import 'package:deaflif/core/contants/image_constans.dart';
 import 'package:deaflif/feature/main/menu_model.dart';
 import 'package:get/get.dart';
-import '../../core/sharedModels/deviceModel.dart';
 
 class NightController extends GetxController {
   List<MenuModel> mock = <MenuModel>[].obs;

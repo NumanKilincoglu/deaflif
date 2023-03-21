@@ -2,6 +2,7 @@ import 'package:deaflif/core/contants/app_colors.dart';
 import 'package:deaflif/core/contants/image_constans.dart';
 import 'package:deaflif/core/contants/routes.dart';
 import 'package:deaflif/core/contants/text_styles.dart';
+import 'package:deaflif/core/sharedControllers/rutinZamanController.dart';
 import 'package:deaflif/feature/main/mainController.dart';
 import 'package:deaflif/feature/main/menu_model.dart';
 import 'package:deaflif/feature/morning/morningController.dart';
@@ -35,6 +36,7 @@ class MorningView extends StatelessWidget {
 class Body extends StatelessWidget {
   Body({Key? key}) : super(key: key);
   final MorningController _controller = Get.put(MorningController());
+  final RutinController _rutinController = Get.put(RutinController());
   late String time;
   @override
   Widget build(BuildContext context) {
@@ -89,7 +91,7 @@ class Body extends StatelessWidget {
                         text: TextSpan(
                           children: <TextSpan>[
                             TextSpan(
-                              text: _controller.zaman.value,
+                              text: _rutinController.sabahRutinZaman.value,
                               style: const TextStyle(
                                   decoration: TextDecoration.underline,
                                   fontSize: 18,
@@ -163,7 +165,7 @@ class Body extends StatelessWidget {
     final TimeOfDay? result =
         await showTimePicker(context: context, initialTime: TimeOfDay.now());
     if (result != null) {
-      _controller.zaman.value = result.format(context);
+      _rutinController.sabahRutinZaman.value = result.format(context);
       print(_controller.zaman.value);
     }
   }

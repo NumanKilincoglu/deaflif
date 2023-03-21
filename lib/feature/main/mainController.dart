@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:deaflif/core/contants/image_constans.dart';
 import 'package:deaflif/feature/main/menu_model.dart';
 import 'package:get/get.dart';
@@ -6,9 +8,21 @@ class MainMenuController extends GetxController {
   List<MenuModel> fakeModel = <MenuModel>[].obs;
   RxBool sabah = false.obs;
   RxBool aksam = false.obs;
+  Timer? _timer;
+  int remainingSecondsGunduz = 1;
+  int remainingSecondsNight = 1;
+  final time = '00.00'.obs;
+  final gunduzSaat = "9".obs;
+  final gunduzDakika = "10".obs;
+
+  final geceZaman = '00.00'.obs;
+  final geceSaat = "9".obs;
+  final geceDakika = "10".obs;
 
   @override
   void onInit() {
+    _startTimer(3600, gunduzSaat, gunduzDakika, remainingSecondsGunduz);
+    _startTimer(900, geceSaat, geceDakika, remainingSecondsNight);
     fakeModel = [
       MenuModel(
           id: 0,
@@ -67,6 +81,20 @@ class MainMenuController extends GetxController {
     ];
   }
 
+  @override
+  void onReady() {
+    print("afasdasdasd");
+    super.onReady();
+  }
+
+  @override
+  void onClose() {
+    if (_timer != null) {
+      _timer!.cancel();
+    }
+    super.onClose();
+  }
+
   void setSabah() {
     sabah.value = !sabah.value;
   }
@@ -92,5 +120,22 @@ class MainMenuController extends GetxController {
         break;
       }
     }
+  }
+
+  _startTimer(
+      int seconds, RxString saat, RxString dakika, int remainingSeconds) {
+    const duration = Duration(seconds: 1);
+    remainingSeconds = seconds;
+    _timer = Timer.periodic(duration, (Timer timer) {
+      if (remainingSeconds == 0) {
+        timer.cancel();
+      } else {
+        final hrs = (remainingSeconds / 3600);
+        int minutes = remainingSeconds ~/ 60;
+        saat.value = hrs.toInt().toString();
+        dakika.value = minutes.toString();
+        remainingSeconds--;
+      }
+    });
   }
 }
