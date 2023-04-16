@@ -1,14 +1,23 @@
 Bu proje Teknofest kapsamında işitme engellilerin hayatını kolaylaştırmak amacıyla geliştirilmiş açık kaynaklı bir projedir.
 
 - Login Page:
-![giriş](https://user-images.githubusercontent.com/24700094/232314086-21a7677c-9292-4647-a1f3-c72c27b944ba.png)
+
+![giriş](https://user-images.githubusercontent.com/24700094/232314261-ed70e3de-e5d0-4827-b924-30d54a1f7278.png)
+
 
 
 - Main Menu:
-![ana ekran](https://user-images.githubusercontent.com/24700094/232314103-b4b260a3-8205-4ac5-a6a9-939b1fe6c31e.png)
+
+![ana ekran](https://user-images.githubusercontent.com/24700094/232314273-2dfd5492-eb55-4272-ac16-897a833aa241.png)
+
+
 
 - History:
-![geçmiş](https://user-images.githubusercontent.com/24700094/232314122-34c92dac-bca6-43f3-ba0b-52072e6fdfe3.png)
+
+![geçmiş](https://user-images.githubusercontent.com/24700094/232314283-261f0be1-e7f6-429f-b0bf-e42851bbca4b.png)
+
+
 
 - Device History
-![Cihaz listele](https://user-images.githubusercontent.com/24700094/232314134-f58f4a6e-db6a-4a36-8c46-0d637ae1b403.png)
+
+![Cihaz listele](https://user-images.githubusercontent.com/24700094/232314290-516e401a-7516-47ab-b98d-ca76ab9442a1.png)
